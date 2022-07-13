@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../partials/head", { pageTitle: "Auth" }); %>
+    <link rel="stylesheet" href="/css/auth.css" />
+  </head>
+  <body>
+    <div class="container">
+      <% if (message) { %>
+        <span class="message success"><%= message %></span>
+      <% } else if (errorMsg) { %>
+        <span class="message error"><%= errorMsg %></span>
+      <% } %>
+
+      <h1>Notes App</h1>
+      <hr />
+      <h2>
+        <% if (viewName === "login") { %>
+          Login
+        <% } else if (viewName === "signup") { %>
+          Sign Up
+        <% } %>
+      </h2>
+      <hr/>
+
+      <div class="formContainer">
+        <% if (viewName === "login") { %>
+          <%- include("../partials/loginForm"); %>
+        <% } else if (viewName === "signup") { %>
+          <%- include("../partials/signUpForm", { errors: errors }); %>
+        <% } %>
+      </div>
+
+      <div class="formFooter">
+        <% if (viewName === "login") { %>
+          <span>Don't have an account?</span>
+          <a href="/auth/signup">Sign up</a>
+        <% } else if (viewName === "signup") { %>
+          <span>Have an account?</span>
+          <a href="/auth/login">Login</a>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+form {
+  display: inline-block;
+}
+
+button {
+  padding: 12px 15px;
+  width: 120px;
+}
+
+.deleteConfirmBtn {
+  margin-right: 12px;
+  background-color: green;
+  color: white;
+}
+
+.deleteConfirmBtn:hover {
+  background-color: rgb(1, 104, 1);
+}
+
+.deleteCancelBtn {
+  background-color: red;
+  color: white;
+}
+
+.deleteCancelBtn:hover {
+  background-color: rgb(220, 0, 0);
+}

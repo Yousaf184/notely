@@ -1,0 +1,31 @@
+textarea {
+  max-width: 100%;
+  min-width: 100%;
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 25px;
+  border: none;
+  background-color: #f1f1f1;
+  font-family: inherit;
+}
+
+.textareaGroup div {
+  display: flex;
+  flex-direction: column;
+}
+
+.textareaGroup label {
+  margin-bottom: 15px;
+}
+
+.createOrEditNoteBtn {
+  padding: 10px;
+  margin-top: 25px;
+  width: 150px;
+  background-color: rgb(1, 155, 1);
+  color: white;
+}
+
+.createOrEditNoteBtn:hover {
+  background-color: rgb(2, 146, 2);
+}

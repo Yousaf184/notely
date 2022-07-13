@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../partials/head", { pageTitle: "Note" }); %>
+    <link rel="stylesheet" href="/css/note.css" />
+  </head>
+  <body>
+    <div class="contentContainer">
+      <header>
+        <%- include("../partials/backLink", { href: "/notes" }) %>
+        <%- include("../partials/noteHeader", { title, createdAt, tags  }); %>
+      </header>
+
+      <hr/>
+
+      <main>
+        <%- content %>
+      </main>
+    </div>
+
+    <%- include("../partials/footer") %>
+  </body>
+</html>

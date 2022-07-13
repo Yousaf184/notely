@@ -1,0 +1,42 @@
+.codeContainer {
+  padding: 20px;
+  margin: 0;
+}
+
+main {
+  font-size: 1.1rem;
+}
+
+hr {
+  margin-top: 25px;
+}
+
+.noteTitle {
+  margin-bottom: 10px;
+}
+
+pre {
+  overflow: auto;
+  padding-top: 30px;
+  line-height: 170%;
+  border-radius: 6px;
+}
+
+code .line {
+  padding-inline: 30px;
+}
+
+table,
+tr,
+th,
+td {
+  border: 1px solid;
+  border-collapse: collapse;
+  padding: 12px;
+}
+
+blockquote {
+  border-left: 6px solid gray;
+  padding: 5px 15px;
+  background-color: beige;
+}

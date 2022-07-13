@@ -1,0 +1,71 @@
+.notesHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notesHeader button {
+  padding: 10px 15px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  background-color: teal;
+  color: white;
+}
+
+.notesHeader button:hover {
+  background-color: rgb(0, 98, 98);
+}
+
+main {
+  margin-top: 45px;
+}
+
+.note {
+  border: 2px solid #eee;
+  padding: 25px;
+  cursor: pointer;
+  border-radius: 5px;
+  max-width: 550px;
+  margin: 30px auto;
+}
+
+.note:hover {
+  background-color: #fafafa;
+}
+
+main a {
+  text-decoration: none;
+  color: #222;
+}
+
+.noteTitle {
+  margin: 0;
+}
+
+.noteActionBtns {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.editNoteBtn,
+.deleteNoteBtn {
+  margin-top: 20px;
+  padding: 8px 15px;
+  color: white;
+}
+
+.editNoteBtn {
+  background-color: steelblue;
+}
+
+.editNoteBtn:hover {
+  background-color: rgb(55, 124, 181);
+}
+
+.deleteNoteBtn {
+  background-color: rgb(255, 79, 79);
+  margin-left: 10px;
+}
+
+.deleteNoteBtn:hover {
+  background-color: rgb(250, 48, 48);
+}
