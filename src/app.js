@@ -22,7 +22,7 @@ app.use(cookieParser());
 
 // routers
 app.use("/auth", authRouter);
-app.use("/notes", notesRouter);
+app.use(["/notes", "/"], notesRouter);
 
 // 404 - unknown route handler
 app.use((req, res, next) => {
