@@ -2,6 +2,7 @@ import express from "express";
 
 import {
   login,
+  logout,
   showLoginPage,
   showSignUpPage,
   signup
@@ -10,6 +11,7 @@ import {
 const authRouter = express.Router();
 
 authRouter.get("/login", showLoginPage);
+authRouter.get("/logout", logout);
 authRouter.get("/signup", showSignUpPage);
 
 authRouter.post("/signup", signup);

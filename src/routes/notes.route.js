@@ -29,4 +29,6 @@ notesRouter
 notesRouter.get("/:noteId", showNoteDetailsPage);
 notesRouter.route("/:noteId/delete").get(showDeleteNotePage).post(deleteNote);
 
+// TODO: fix route ordering: http://localhost:3000/auth throws error
+
 export default notesRouter;

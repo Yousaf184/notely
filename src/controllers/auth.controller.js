@@ -98,4 +98,13 @@ async function login(req, res, next) {
   }
 }
 
-export { showLoginPage, showSignUpPage, signup, login };
+async function logout(req, res, next) {
+  try {
+    res.cookie("_token", "");
+    res.redirect("/auth/login");
+  } catch (error) {
+    next(error);
+  }
+}
+
+export { showLoginPage, showSignUpPage, signup, login, logout };
