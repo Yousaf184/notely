@@ -28,5 +28,8 @@
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.5.0",
     "nodemon": "^2.0.16"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
