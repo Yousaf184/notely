@@ -7,12 +7,13 @@ import {
   showSignUpPage,
   signup
 } from "../controllers/auth.controller.js";
+import isLoggedIn from "../middlewares/isLoggedIn.middleware.js";
 
 const authRouter = express.Router();
 
-authRouter.get("/login", showLoginPage);
-authRouter.get("/logout", logout);
-authRouter.get("/signup", showSignUpPage);
+authRouter.get("/login", isLoggedIn, showLoginPage);
+authRouter.get("/logout", isLoggedIn, logout);
+authRouter.get("/signup", isLoggedIn, showSignUpPage);
 
 authRouter.post("/signup", signup);
 authRouter.post("/login", login);

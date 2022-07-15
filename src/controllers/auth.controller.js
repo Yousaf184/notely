@@ -16,17 +16,25 @@ import {
 } from "../utils/constants.js";
 
 function showLoginPage(req, res) {
-  res.render(
-    AUTH_VIEW_PATH,
-    createAuthTemplateData({ viewName: LOGIN_VIEW_NAME })
-  );
+  if (req.userId) {
+    res.redirect("/notes");
+  } else {
+    res.render(
+      AUTH_VIEW_PATH,
+      createAuthTemplateData({ viewName: LOGIN_VIEW_NAME })
+    );
+  }
 }
 
 function showSignUpPage(req, res) {
-  res.render(
-    AUTH_VIEW_PATH,
-    createAuthTemplateData({ viewName: SIGNUP_VIEW_NAME })
-  );
+  if (req.userId) {
+    res.redirect("/notes");
+  } else {
+    res.render(
+      AUTH_VIEW_PATH,
+      createAuthTemplateData({ viewName: SIGNUP_VIEW_NAME })
+    );
+  }
 }
 
 async function signup(req, res, next) {
