@@ -50,3 +50,15 @@ hr {
 .signUpForm button:hover {
   background-color: rgb(3, 179, 24);
 }
+
+@media (max-width: 750px) {
+  .container {
+    width: 85%;
+  }
+}
+
+@media (max-width: 550px) {
+  .container {
+    width: 100%;
+  }
+}
