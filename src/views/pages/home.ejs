@@ -5,23 +5,16 @@
     <link rel="stylesheet" href="/css/home.css" />
   </head>
   <body>
+    <header>
+      <%- include("../partials/navbar", { isAuthenticated: true }); %>
+    </header>
+
     <div class="contentContainer">
-      <header>
-        <div class="welcomeHeader">
-          <h1>Welcome!</h1>
-          <form action="/auth/logout">
-            <button class="logoutBtn">Logout</button>
-          </form>
-        </div>
-
-        <hr/>
-
-        <div class="notesHeader">
-          <h2>My Notes</h2>
-          <button id="newNoteBtn">New Note</button>
-        </div>
-        <hr />
-      </header>
+      <div class="notesHeader">
+        <h2>My Notes</h2>
+        <button id="newNoteBtn">New Note</button>
+      </div>
+      <hr />
 
       <main>
         <% if (userNotes.length === 0) { %>

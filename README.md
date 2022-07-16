@@ -1,4 +1,4 @@
-# notes-app
+# notely
 
 Take notes in markdown format
 

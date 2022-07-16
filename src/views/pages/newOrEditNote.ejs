@@ -5,15 +5,19 @@
     <link rel="stylesheet" href="/css/newOrEditNote.css" />
   </head>
   <body>
+    <header>
+      <%- include("../partials/navbar", { isAuthenticated: true }); %>
+    </header>
+
     <div class="contentContainer">
       <% if (message) { %>
         <span class="message success"><%= message %></span>
       <% } %>
-      <header>
-        <%- include("../partials/backLink", { href: "/notes" }) %>
-        <h1><%= title %></h1>
-        <hr/>
-      </header>
+
+      <%- include("../partials/backLink", { href: "/notes" }) %>
+
+      <h1><%= title %></h1>
+      <hr/>
 
       <form action="/notes/new" method="post">
         <% if (inEditMode) { %>
@@ -55,7 +59,7 @@
             <textarea
               name="noteContent"
               id="noteContent"
-              rows="13"
+              rows="10"
               required
               placeholder="markdown format supported"><%= noteToEdit ? noteToEdit.content : '' %></textarea>
           </div>
@@ -73,5 +77,6 @@
         </button>
       </form>
     </div>
+    <%- include("../partials/footer"); %>
   </body>
 </html>

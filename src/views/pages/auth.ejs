@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="/css/auth.css" />
   </head>
   <body>
+    <header>
+      <%- include("../partials/navbar", { isAuthenticated: false }); %>
+    </header>
+
     <div class="container">
       <% if (message) { %>
         <span class="message success"><%= message %></span>

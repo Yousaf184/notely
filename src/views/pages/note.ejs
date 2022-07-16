@@ -5,11 +5,13 @@
     <link rel="stylesheet" href="/css/note.css" />
   </head>
   <body>
+    <header>
+      <%- include("../partials/navbar", { isAuthenticated: true }); %>
+    </header>
+
     <div class="contentContainer">
-      <header>
-        <%- include("../partials/backLink", { href: "/notes" }) %>
-        <%- include("../partials/noteHeader", { title, createdAt, tags  }); %>
-      </header>
+      <%- include("../partials/backLink", { href: "/notes" }) %>
+      <%- include("../partials/noteHeader", { title, createdAt, tags  }); %>
 
       <hr/>
 

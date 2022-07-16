@@ -5,10 +5,12 @@
     <link rel="stylesheet" href="/css/deleteNote.css" />
   </head>
   <body>
+    <header>
+      <%- include("../partials/navbar", { isAuthenticated: true }); %>
+    </header>
+
     <div class="contentContainer">
-      <header>
-        <h1>Delete Confirmation</h1>
-      </header>
+      <h1>Delete Confirmation</h1>
 
       <% if (message) { %>
         <span class="message success"><%= message %></span>
