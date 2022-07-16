@@ -11,9 +11,14 @@ body {
   background-color: whitesmoke;
   font-family: "Poppins", sans-serif;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  /*
+    place footer at the bottom of the page even
+    if page content doesn't have enough height
+  */
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: start;
+  gap: 30px 0px;
 }
 
 button {
@@ -142,7 +147,6 @@ label,
 footer {
   background-color: #222;
   padding: 12px;
-  margin-top: 50px;
   color: white;
   text-align: center;
 }

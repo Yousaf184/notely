@@ -1,11 +1,3 @@
-/*
-  override "justify-content" property in global.css
-  to fix laytout issue on delete note page
-*/
-body {
-  justify-content: flex-start;
-}
-
 form {
   display: inline-block;
 }
