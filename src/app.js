@@ -18,6 +18,7 @@ app.set("views", path.join("src", "views"));
 // middlewares
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(cookieParser());
 
 // routers
@@ -25,7 +26,7 @@ app.use("/auth", authRouter);
 app.use(["/notes", "/"], notesRouter);
 
 // 404 - unknown route handler
-app.use((req, res, next) => {
+app.all("*", (req, res, next) => {
   res.status(STATUS_CODES.notFound).render(ERROR_VIEW_PATH, {
     errorMessage: "404 - Page not found"
   });

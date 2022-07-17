@@ -130,11 +130,22 @@ async function showNoteDetailsPage(req, res, next) {
   }
 }
 
+async function showNotePreview(req, res, next) {
+  try {
+    const { noteContent } = req.body;
+    const htmlStr = await convertMarkdownToHTML(noteContent);
+    res.status(STATUS_CODES.ok).json({ htmlStr });
+  } catch (error) {
+    next(error);
+  }
+}
+
 export {
   showHomePage,
   showNewOrEditNotePage,
   createNote,
   showDeleteNotePage,
   deleteNote,
-  showNoteDetailsPage
+  showNoteDetailsPage,
+  showNotePreview
 };

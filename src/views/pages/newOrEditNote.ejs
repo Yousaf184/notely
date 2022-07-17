@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <%- include("../partials/head", { pageTitle: "New Note" }); %>
+    <link rel="stylesheet" href="/css/note.css" />
     <link rel="stylesheet" href="/css/newOrEditNote.css" />
   </head>
+
   <body>
     <header>
       <%- include("../partials/navbar", { isAuthenticated: true }); %>
@@ -11,72 +14,66 @@
 
     <div class="contentContainer">
       <% if (message) { %>
-        <span class="message success"><%= message %></span>
+      <span class="message success"><%= message %></span>
       <% } %>
 
       <%- include("../partials/backLink", { href: "/notes" }) %>
 
       <h1><%= title %></h1>
-      <hr/>
+      <hr />
 
       <form action="/notes/new" method="post">
         <% if (inEditMode) { %>
-          <input type="hidden" name="id" value="<%= noteToEdit._id %>" />
+        <input type="hidden" name="id" value="<%= noteToEdit._id %>" />
         <% } %>
 
         <div class="inputGroup">
           <div>
             <label for="title">Title:</label>
-            <input
-              type="text"
-              id="title"
-              name="title"
-              required
-              value="<%= noteToEdit ? noteToEdit.title : '' %>"
-            />
+            <input type="text" id="title" name="title" required value="<%= noteToEdit ? noteToEdit.title : '' %>" />
           </div>
           <% if (errors?.title) { %>
-            <span class="formError"><%= errors.title %></span>
+          <span class="formError"><%= errors.title %></span>
           <% } %>
         </div>
 
         <div class="inputGroup">
           <div>
             <label for="tags">Tags:</label>
-            <input
-              type="text"
-              id="tags"
-              name="tags"
-              placeholder="js, node, etc."
-              value="<%= noteToEdit ? noteToEdit.tags : '' %>"
-            />
+            <input type="text" id="tags" name="tags" placeholder="js, node, etc." value="<%= noteToEdit ? noteToEdit.tags : '' %>" />
           </div>
         </div>
 
         <div class="textareaGroup">
           <div>
             <label for="noteContent">Note:</label>
-            <textarea
-              name="noteContent"
-              id="noteContent"
-              rows="10"
-              required
-              placeholder="markdown format supported"><%= noteToEdit ? noteToEdit.content : '' %></textarea>
+            <textarea name="noteContent" id="noteContent" rows="10" required placeholder="markdown format supported"><%= noteToEdit ? noteToEdit.content : '' %></textarea>
           </div>
           <% if (errors?.noteContent) { %>
-            <span class="formError"><%= errors.noteContent %></span>
+          <span class="formError"><%= errors.noteContent %></span>
           <% } %>
         </div>
 
-        <button class="createOrEditNoteBtn">
-          <% if (inEditMode) { %>
+        <div class="formActionBtnsContainer">
+          <button class="createOrEditNoteBtn">
+            <% if (inEditMode) { %>
             Update Note
-          <% } else { %>
+            <% } else { %>
             Create Note
-          <% } %>
-        </button>
+            <% } %>
+          </button>
+          <button class="previewNoteBtn" id="previewNoteBtn">Preview Note</button>
+        </div>
       </form>
     </div>
+
+    <div class="notePreviewContainer" id="notePreviewContainer">
+      <div class="notePreviewModal" id="notePreviewModal"></div>
+    </div>
+
     <%- include("../partials/footer"); %>
+
+    <script src="/js/newOrEditNote.js"></script>
   </body>
+
 </html>

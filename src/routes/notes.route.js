@@ -7,7 +7,8 @@ import {
   showDeleteNotePage,
   showHomePage,
   showNewOrEditNotePage,
-  showNoteDetailsPage
+  showNoteDetailsPage,
+  showNotePreview
 } from "../controllers/notes.controller.js";
 
 const notesRouter = express.Router();
@@ -24,12 +25,11 @@ notesRouter
   .get(showNewOrEditNotePage)
   .post(createNote);
 
+notesRouter.post("/preview", showNotePreview);
+
 // following route "/:noteId" should be after "/new" route to avoid matching
 // :noteId path parameter with other paths, e.g. /new
 notesRouter.get("/:noteId", showNoteDetailsPage);
 notesRouter.route("/:noteId/delete").get(showDeleteNotePage).post(deleteNote);
-
-// TODO: fix route ordering: http://localhost:3000/auth throws error
-// TODO: fix footer top margin
 
 export default notesRouter;

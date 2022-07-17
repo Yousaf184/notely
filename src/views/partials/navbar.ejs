@@ -1,8 +1,10 @@
 <nav>
-  <h1>Notely</h1>
+  <a href="/notes">
+    <h1>Notely</h1>
+  </a>
   <% if (isAuthenticated) { %>
-    <form action="/auth/logout">
-      <button class="logoutBtn">Logout</button>
-    </form>
+  <form action="/auth/logout">
+    <button class="logoutBtn">Logout</button>
+  </form>
   <% } %>
 </nav>

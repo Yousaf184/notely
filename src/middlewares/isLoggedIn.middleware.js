@@ -1,5 +1,6 @@
 import util from "node:util";
 import jwt from "jsonwebtoken";
+import { STATUS_CODES } from "../utils/constants.js";
 
 // promisify jwt.verify()
 const promisifiedJwtVerify = util.promisify(jwt.verify);
@@ -14,7 +15,7 @@ async function isLoggedIn(req, res, next) {
 
     if (!token) {
       if (!isAuthPageRoute) {
-        res.redirect("/auth/login");
+        res.status(STATUS_CODES.unauthorized).redirect("/auth/login");
       } else {
         next();
       }
@@ -37,7 +38,9 @@ async function isLoggedIn(req, res, next) {
     }
   } catch (error) {
     // in case of invalid JWT, redirect to login page
-    res.redirect("/auth/login");
+    // clear the cookie so that new request is without the expired token
+    res.cookie("_token", "");
+    res.status(STATUS_CODES.unauthorized).redirect("/auth/login");
   }
 }
 

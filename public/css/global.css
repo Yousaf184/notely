@@ -39,6 +39,10 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 25px 55px;
+}
+
+nav a {
+  text-decoration: none;
   color: white;
 }
 

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <%- include("../partials/head", { pageTitle: "Home" }); %>
     <link rel="stylesheet" href="/css/home.css" />
   </head>
+
   <body>
     <header>
       <%- include("../partials/navbar", { isAuthenticated: true }); %>
@@ -18,26 +20,26 @@
 
       <main>
         <% if (userNotes.length === 0) { %>
-          <h2>No notes available. Try adding some somes.</h2>
+        <h2>No notes available. Try adding some somes.</h2>
         <% } else { %>
-          <section id="notesListContainer">
-            <% userNotes.forEach((note) => { %>
-              <article class="note" data-id="<%= note._id %>">
-                <%- include("../partials/noteHeader", {
-                    title: note.title,
-                    createdAt: note.createdAt,
-                    tags: note.tags
-                  });
-                %>
+        <section id="notesListContainer">
+          <% userNotes.forEach((note) => { %>
+          <article class="note" data-id="<%= note._id %>">
+            <%- include("../partials/noteHeader", {
+                title: note.title,
+                createdAt: note.createdAt,
+                tags: note.tags
+              });
+            %>
 
-                <div class="noteActionBtns">
-                  <button class="editNoteBtn">Edit</button>
-                  <button class="deleteNoteBtn">Delete</button>
-                </div>
-              </article>
-            <% }); %>
-          </section>
-       <% } %>
+            <div class="noteActionBtns">
+              <button class="editNoteBtn">Edit</button>
+              <button class="deleteNoteBtn">Delete</button>
+            </div>
+          </article>
+          <% }); %>
+        </section>
+        <% } %>
       </main>
     </div>
 
@@ -45,4 +47,5 @@
 
     <script src="/js/home.js"></script>
   </body>
+
 </html>
