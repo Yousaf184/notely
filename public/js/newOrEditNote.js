@@ -7,6 +7,8 @@ const SHOW_NOTE_PREVIEW_CLASS = "showPreviewModal";
 previewNoteBtn.addEventListener("click", (event) => {
   event.preventDefault();
 
+  previewNoteBtn.classList.add("spin"); // show spinner
+
   const noteContent = document.getElementById("noteContent").value;
 
   if (noteContent === "") {
@@ -14,7 +16,10 @@ previewNoteBtn.addEventListener("click", (event) => {
   } else {
     getNotePreview(noteContent)
       .then((data) => showNotePreview(data.htmlStr))
-      .catch((error) => console.log(error.message));
+      .catch((error) => console.log(error.message))
+      .finally(() => {
+        previewNoteBtn.classList.remove("spin"); // remove spinner
+      });
   }
 });
 

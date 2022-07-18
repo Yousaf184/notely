@@ -8,8 +8,12 @@ newNoteBtn.addEventListener("click", () => {
 notesListContainer.addEventListener("click", (event) => {
   const clickedElement = event.target;
 
-  const isEditBtn = clickedElement.classList.contains("editNoteBtn");
-  const isDeleteBtn = clickedElement.classList.contains("deleteNoteBtn");
+  const classList = clickedElement.classList;
+  const isEditBtn =
+    classList.contains("editNoteBtn") || classList.contains("editIcon");
+  const isDeleteBtn =
+    classList.contains("deleteNoteBtn") || classList.contains("deleteIcon");
+
   const noteElement = clickedElement.closest(".note");
 
   if (noteElement) {
