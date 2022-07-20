@@ -7,17 +7,18 @@ newNoteBtn.addEventListener("click", () => {
 
 notesListContainer.addEventListener("click", (event) => {
   const clickedElement = event.target;
-
-  const classList = clickedElement.classList;
-  const isEditBtn =
-    classList.contains("editNoteBtn") || classList.contains("editIcon");
-  const isDeleteBtn =
-    classList.contains("deleteNoteBtn") || classList.contains("deleteIcon");
-
   const noteElement = clickedElement.closest(".note");
 
   if (noteElement) {
     const noteId = noteElement.dataset.id;
+
+    const editBtn = noteElement.querySelector(".editNoteBtn");
+    const deleteBtn = noteElement.querySelector(".deleteNoteBtn");
+
+    const isEditBtn =
+      clickedElement === editBtn || editBtn.contains(clickedElement);
+    const isDeleteBtn =
+      clickedElement === deleteBtn || deleteBtn.contains(clickedElement);
 
     if (!isEditBtn && !isDeleteBtn) {
       window.location.href = "/notes/" + noteId;
