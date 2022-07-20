@@ -87,9 +87,13 @@ async function login(req, res, next) {
     const jwt = await createJwt(user._id);
     const isInProduction = process.env.NODE_ENV === "production";
     // send the token to the client in a cookie
+    const DAYS_IN_WEEK = 7;
+    const HOURS_IN_DAY = 24;
+    const MILLIS_IN_HOUR = 3600000;
     res.cookie("_token", jwt, {
       httpOnly: isInProduction,
-      secure: isInProduction
+      secure: isInProduction,
+      maxAge: DAYS_IN_WEEK * HOURS_IN_DAY * MILLIS_IN_HOUR // expire after one week
     });
 
     res.redirect("/notes"); // redirect to home page
@@ -100,7 +104,7 @@ async function login(req, res, next) {
 
 async function logout(req, res, next) {
   try {
-    res.cookie("_token", "");
+    res.clearCookie("_token");
     res.redirect("/auth/login");
   } catch (error) {
     next(error);
