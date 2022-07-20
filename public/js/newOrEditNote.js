@@ -1,20 +1,19 @@
 const previewNoteBtn = document.getElementById("previewNoteBtn");
 const previewModalContainer = document.getElementById("notePreviewContainer");
 const previewModal = document.getElementById("notePreviewModal");
+const noteInput = document.getElementById("noteContent");
 
 const SHOW_NOTE_PREVIEW_CLASS = "showPreviewModal";
 
 previewNoteBtn.addEventListener("click", (event) => {
   event.preventDefault();
 
-  previewNoteBtn.classList.add("spin"); // show spinner
-
-  const noteContent = document.getElementById("noteContent").value;
-
-  if (noteContent === "") {
+  if (noteInput.value === "") {
     showNotePreview("<h2>Nothing to show</h2>");
   } else {
-    getNotePreview(noteContent)
+    previewNoteBtn.classList.add("spin"); // show spinner
+
+    getNotePreview(noteInput.value)
       .then((data) => showNotePreview(data.htmlStr))
       .catch((error) => console.log(error.message))
       .finally(() => {
