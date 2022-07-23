@@ -102,7 +102,13 @@ nav h1 {
   background-color: white;
   margin: 20px auto;
   padding: 25px 35px;
-  overflow: auto;
+  /*
+    following property ensures that .containerContainer element
+    doesn't cause horizontal scroll. Without the following property
+    .contentContainer won't shrink past its content size because
+    by default, grid items have this behavior
+  */
+  min-width: 0;
 }
 
 .formError {
