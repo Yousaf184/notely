@@ -102,6 +102,7 @@ nav h1 {
   background-color: white;
   margin: 20px auto;
   padding: 25px 35px;
+  overflow: auto;
 }
 
 .formError {
