@@ -55,16 +55,24 @@
         </div>
 
         <div class="formActionBtnsContainer">
-          <button class="createOrEditNoteBtn">
-            <% if (inEditMode) { %>
-            Update Note
-            <% } else { %>
-            Create Note
-            <% } %>
-          </button>
+          <% if (inEditMode) { %>
+          <%- include("../partials/spinnerBtn", {
+              btnText: "Update Note",
+              id: "createOrEditNoteBtn",
+              cssClasses: "createOrEditNoteBtn"
+            });
+          %>
+          <% } else { %>
+          <%- include("../partials/spinnerBtn", {
+              btnText: "Create Note",
+              id: "createOrEditNoteBtn",
+              cssClasses: "createOrEditNoteBtn"
+            });
+          %>
+          <% } %>
 
           <%- include("../partials/spinnerBtn", {
-              btnText: "Preview Node",
+              btnText: "Preview Note",
               id: "previewNoteBtn",
               cssClasses: "previewNoteBtn"
             });

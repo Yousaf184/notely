@@ -6,14 +6,9 @@ authFormsContainer.addEventListener("click", (event) => {
   if (clickedElm.tagName === "BUTTON") {
     const parentAuthForm = clickedElm.closest("form");
 
-    console.log("btn clicked");
-
     if (parentAuthForm.reportValidity()) {
-      console.log("invalid form");
       clickedElm.setAttribute("disabled", true);
       clickedElm.classList.add("spin");
-    } else {
-      console.log("valid form");
     }
   }
 });

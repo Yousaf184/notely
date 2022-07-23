@@ -31,7 +31,6 @@ function showSignUpPage(req, res) {
 
 async function signup(req, res, next) {
   try {
-    await sleep();
     // validation is done in the controller instead of in the
     // mongoose schema to simplify showing validation errors
     // on the frontend
@@ -62,12 +61,6 @@ async function signup(req, res, next) {
 
     next(error);
   }
-}
-
-function sleep() {
-  return new Promise((res) => {
-    setTimeout(res, 5000);
-  });
 }
 
 async function login(req, res, next) {

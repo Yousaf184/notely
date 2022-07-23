@@ -7,6 +7,10 @@ button {
   width: 120px;
 }
 
+.deleteActionBtns {
+  display: flex;
+}
+
 .deleteConfirmBtn {
   margin-right: 12px;
   background-color: green;

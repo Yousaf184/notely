@@ -1,9 +1,15 @@
+const createOrEditNoteBtn = document.getElementById("createOrEditNoteBtn");
 const previewNoteBtn = document.getElementById("previewNoteBtn");
 const previewModalContainer = document.getElementById("notePreviewContainer");
 const previewModal = document.getElementById("notePreviewModal");
 const noteInput = document.getElementById("noteContent");
 
 const SHOW_NOTE_PREVIEW_CLASS = "showPreviewModal";
+
+createOrEditNoteBtn.addEventListener("click", () => {
+  createOrEditNoteBtn.classList.add("spin"); // show spinner
+  createOrEditNoteBtn.setAttribute("disabled", true);
+});
 
 previewNoteBtn.addEventListener("click", (event) => {
   event.preventDefault();
