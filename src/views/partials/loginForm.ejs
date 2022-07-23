@@ -12,5 +12,10 @@
     </div>
   </div>
 
-  <button id="loginBtn">Login</button>
+  <%- include("../partials/spinnerBtn", {
+      btnText: "Login",
+      id: "loginBtn",
+      cssClasses: "loginBtn"
+    });
+  %>
 </form>

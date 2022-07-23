@@ -12,12 +12,14 @@ previewNoteBtn.addEventListener("click", (event) => {
     showNotePreview("<h2>Nothing to show</h2>");
   } else {
     previewNoteBtn.classList.add("spin"); // show spinner
+    previewNoteBtn.setAttribute("disabled", true);
 
     getNotePreview(noteInput.value)
       .then((data) => showNotePreview(data.htmlStr))
       .catch((error) => console.log(error.message))
       .finally(() => {
         previewNoteBtn.classList.remove("spin"); // remove spinner
+        previewNoteBtn.removeAttribute("disabled");
       });
   }
 });

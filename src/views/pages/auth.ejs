@@ -29,7 +29,7 @@
       </h2>
       <hr />
 
-      <div class="formContainer">
+      <div class="formContainer" id="authFormsContainer">
         <% if (viewName === "login") { %>
         <%- include("../partials/loginForm"); %>
         <% } else if (viewName === "signup") { %>
@@ -49,5 +49,7 @@
     </div>
     <%- include("../partials/footer"); %>
   </body>
+
+  <script src="/js/auth.js"></script>
 
 </html>

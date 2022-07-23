@@ -39,5 +39,10 @@
     <% } %>
   </div>
 
-  <button id="signUpBtn">Sign Up</button>
+  <%- include("../partials/spinnerBtn", {
+      btnText: "Sign Up",
+      id: "signUpBtn",
+      cssClasses: "signUpBtn"
+    });
+  %>
 </form>

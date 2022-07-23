@@ -31,6 +31,7 @@ function showSignUpPage(req, res) {
 
 async function signup(req, res, next) {
   try {
+    await sleep();
     // validation is done in the controller instead of in the
     // mongoose schema to simplify showing validation errors
     // on the frontend
@@ -63,22 +64,30 @@ async function signup(req, res, next) {
   }
 }
 
+function sleep() {
+  return new Promise((res) => {
+    setTimeout(res, 5000);
+  });
+}
+
 async function login(req, res, next) {
   try {
     const { email, password } = req.body;
 
     // find the user with the provided email in the database
     const user = await User.findOne({ email }).exec();
-    const errorMsg = "invalid email / password combination";
+    let isPasswordCorrect = false;
 
-    // compare provided password with the one saved in the database
-    const isPasswordCorrect = await bcrypt.compare(password, user?.password);
+    if (user) {
+      // compare provided password with the one saved in the database
+      isPasswordCorrect = await bcrypt.compare(password, user.password);
+    }
 
     if (!user || !isPasswordCorrect) {
       const data = createAuthTemplateData({
         viewName: LOGIN_VIEW_NAME,
         view: AUTH_VIEW_PATH,
-        errorMsg
+        errorMsg: "invalid email / password combination"
       });
       throw createError(STATUS_CODES.unauthorized, data);
     }

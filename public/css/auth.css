@@ -33,21 +33,21 @@ hr {
   margin-top: 15px;
 }
 
-.loginForm button {
+.loginBtn {
   background-color: rgb(0, 128, 255);
   color: white;
 }
 
-.loginForm button:hover {
+.loginBtn:hover {
   background-color: rgb(3, 120, 237);
 }
 
-.signUpForm button {
+.signUpBtn {
   background-color: rgb(4, 189, 25);
   color: white;
 }
 
-.signUpForm button:hover {
+.signUpBtn:hover {
   background-color: rgb(3, 179, 24);
 }
 
